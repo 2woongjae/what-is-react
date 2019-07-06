@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+      #root p {
+        color: white;
+        font-size: 20px;
+        background-color: green;
+        text-align: center;
+        width: 200px;
+      }
+      #btn_plus {
+        background-color: red;
+        border: 2px solid #000000;
+        font-size: 15px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <button id="btn_plus">+</button>
+
+    <script type="text/javascript">
+      const root = document.querySelector('#root');
+      const btn_plus = document.querySelector('#btn_plus');
+
+      let i = 0;
+
+      root.innerHTML = `<p>init : 0</p>`;
+
+      btn_plus.addEventListener('click', () => {
+        root.innerHTML = `<p>init : ${++i}</p>`;
+      });
+    </script>
+  </body>
+</html>

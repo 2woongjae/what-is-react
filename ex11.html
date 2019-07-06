@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+      class App extends React.Component {
+        _interval;
+
+        constructor(props) {
+          console.log('App constructor');
+          super(props);
+          this.state = {
+            age: 37,
+          };
+        }
+
+        componentWillMount() {
+          console.log('App componentWillMount');
+        }
+
+        componentDidMount() {
+          console.log('App componentDidMount');
+          this._interval = window.setInterval(() => {
+            this.setState({
+              age: this.state.age + 1,
+            });
+          }, 1000);
+        }
+
+        componentWillUnmount() {
+          console.log('App componentWillUnmount');
+          clearInterval(this._interval);
+        }
+
+        componentWillReceiveProps(nextProps) {
+          console.log(
+            `App componentWillReceiveProps : ${JSON.stringify(nextProps)}`,
+          );
+        }
+
+        shouldComponentUpdate(nextProps, nextState): boolean {
+          console.log(
+            `App shouldComponentUpdate : ${JSON.stringify(
+              nextProps,
+            )}, ${JSON.stringify(nextState)}`,
+          );
+          return true;
+        }
+
+        componentWillUpdate(nextProps, nextState) {
+          console.log(
+            `App componentWillUpdate : ${JSON.stringify(
+              nextProps,
+            )}, ${JSON.stringify(nextState)}`,
+          );
+        }
+
+        componentDidUpdate(prevProps, prevState) {
+          console.log(
+            `App componentDidUpdate : ${JSON.stringify(
+              prevProps,
+            )}, ${JSON.stringify(prevState)}`,
+          );
+        }
+
+        render() {
+          console.log('App render');
+          return (
+            <div>
+              <h2>
+                Hello {this.props.name} - {this.state.age}
+              </h2>
+            </div>
+          );
+        }
+      }
+
+      ReactDOM.render(<App name="Mark" />, document.querySelector('#root'));
+    </script>
+  </body>
+</html>
