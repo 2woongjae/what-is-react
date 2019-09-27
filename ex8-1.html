@@ -1,4 +1,4 @@
-<!-- ex9.html : defaultProps 설정 -->
+<!-- ex8-1.html : 함수로 리액트 컴포넌트 만들기 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,25 +20,18 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
-      class Component extends React.Component {
-        static defaultProps = {
-          message: '안녕하세요!!!',
-        };
-        render() {
-          return (
-            <div>
-              {this.props.message} 이것은 클래스를 상속하여 만든 컴포넌트
-              입니다.
-            </div>
-          );
-        }
+      function Component(props) {
+        return (
+          <div>
+            <h1>{props.message} 이것은 함수로 만든 컴포넌트 입니다.</h1>
+          </div>
+        );
       }
 
-      //   Component.defaultProps = {
-      //     message: '안녕하세요!!!',
-      //   };
-
-      ReactDOM.render(<Component />, document.querySelector('#root'));
+      ReactDOM.render(
+        <Component message="안녕하세요!!!" />,
+        document.querySelector('#root'),
+      );
     </script>
   </body>
 </html>

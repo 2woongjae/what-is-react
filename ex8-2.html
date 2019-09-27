@@ -1,3 +1,4 @@
+<!-- ex8-2.html : 클래스로 리액트 컴포넌트 만들기 -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,9 +21,6 @@
 
     <script type="text/babel">
       class Component extends React.Component {
-        state = {
-          count: 0,
-        };
         render() {
           return (
             <div>
@@ -30,7 +28,6 @@
                 {this.props.message} 이것은 클래스를 상속하여 만든 컴포넌트
                 입니다.
               </h1>
-              <p>count는 {this.state.count} 입니다.</p>
             </div>
           );
         }
