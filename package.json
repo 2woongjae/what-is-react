@@ -1,0 +1,23 @@
+{
+  "name": "what-is-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2woongjae/what-is-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2woongjae/what-is-react/issues"
+  },
+  "homepage": "https://github.com/2woongjae/what-is-react#readme",
+  "dependencies": {
+    "serve": "^11.2.0"
+  }
+}
